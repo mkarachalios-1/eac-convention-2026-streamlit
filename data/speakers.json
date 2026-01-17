@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Dr Manolis Karachalios",
+    "role": "EAC Chairman",
+    "bio": "Former F-16 pilot and instructor with the Hellenic Air Force; safety professional focused on display flying.",
+    "type": "Board"
+  },
+  {
+    "name": "Geoffrey Buekenberghs",
+    "role": "EAC Vice Chairman",
+    "bio": "Joined the EAC Board in 2023; Airshow Director of the International Sanicole Airshow; GA pilot.",
+    "type": "Board"
+  },
+  {
+    "name": "Charles Skiera",
+    "role": "EAC Executive",
+    "bio": "Flying Display Director with global experience; Co-Director of R5 Air Displays Ltd; Executive to the Council since 2015.",
+    "type": "Board"
+  },
+  {
+    "name": "Jorg Thurnheer",
+    "role": "Board Member \u2013 Aviation Regulator",
+    "bio": "",
+    "type": "Board"
+  },
+  {
+    "name": "Helen Webb",
+    "role": "Board Member \u2013 Marketing Consultant",
+    "bio": "",
+    "type": "Board"
+  },
+  {
+    "name": "Pablo Gonzalez",
+    "role": "Board Member \u2013 Event Organiser",
+    "bio": "",
+    "type": "Board"
+  },
+  {
+    "name": "Massimo Farugia",
+    "role": "Board Member \u2013 Event Organiser",
+    "bio": "",
+    "type": "Board"
+  },
+  {
+    "name": "Jean-Noel Bouillaguet",
+    "role": "Board Member \u2013 Flying Display Director",
+    "bio": "",
+    "type": "Board"
+  },
+  {
+    "name": "Alberto Moretti",
+    "role": "Board Member \u2013 Flying Display Director",
+    "bio": "",
+    "type": "Board"
+  },
+  {
+    "name": "Zbynek Pavlacik",
+    "role": "Board Member \u2013 Event Organiser",
+    "bio": "",
+    "type": "Board"
+  },
+  {
+    "name": "Mike Ling MBE",
+    "role": "Board Member \u2013 Display Pilot",
+    "bio": "",
+    "type": "Board"
+  },
+  {
+    "name": "Gilbert Beukenberghs",
+    "role": "Honorary Chairman \u2013 Event Organiser",
+    "bio": "",
+    "type": "Board"
+  }
+]

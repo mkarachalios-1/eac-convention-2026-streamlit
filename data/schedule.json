@@ -1,0 +1,175 @@
+[
+  {
+    "date": "2026-02-25",
+    "day_label": "Wednesday 25 Feb 2026",
+    "items": [
+      {
+        "time": "AM",
+        "title": "Military FJ Display Pilots Safety Workshop",
+        "type": "Workshop",
+        "audience": "Invitation Only",
+        "location": "Royal Olympic Hotel \u2013 room TBC"
+      },
+      {
+        "time": "13:30\u201317:00",
+        "title": "Military FJ Display Pilots Safety Workshop (continuation)",
+        "type": "Workshop",
+        "audience": "Invitation Only",
+        "location": "Royal Olympic Hotel \u2013 room TBC"
+      },
+      {
+        "time": "13:30\u201317:00",
+        "title": "Flying Display Directors Safety Workshop",
+        "type": "Workshop",
+        "audience": "Delegates",
+        "location": "Royal Olympic Hotel \u2013 room TBC"
+      },
+      {
+        "time": "13:30\u201317:00",
+        "title": "Formation Display Pilots Safety Workshop",
+        "type": "Workshop",
+        "audience": "Delegates",
+        "location": "Royal Olympic Hotel \u2013 room TBC"
+      },
+      {
+        "time": "13:30\u201317:00",
+        "title": "Sustainability Working Group",
+        "type": "Working group",
+        "audience": "Delegates",
+        "location": "Royal Olympic Hotel \u2013 room TBC"
+      },
+      {
+        "time": "19:30\u201322:00",
+        "title": "Official Welcome Drinks Reception & Buffet (Networking)",
+        "type": "Networking",
+        "audience": "All",
+        "location": "Royal Olympic Hotel \u2013 exhibition / function space (TBC)"
+      },
+      {
+        "time": "19:30\u201322:00",
+        "title": "Exhibition Area Open",
+        "type": "Exhibition",
+        "audience": "All",
+        "location": "Royal Olympic Hotel \u2013 exhibition area (TBC)"
+      }
+    ]
+  },
+  {
+    "date": "2026-02-26",
+    "day_label": "Thursday 26 Feb 2026",
+    "items": [
+      {
+        "time": "AM",
+        "title": "Official Convention Opening",
+        "type": "Plenary",
+        "audience": "All",
+        "location": "Royal Olympic Hotel \u2013 main conference room (TBC)"
+      },
+      {
+        "time": "AM",
+        "title": "Exhibition Area Open",
+        "type": "Exhibition",
+        "audience": "All",
+        "location": "Royal Olympic Hotel \u2013 exhibition area (TBC)"
+      },
+      {
+        "time": "09:00\u201312:30",
+        "title": "Presentations (AM block)",
+        "type": "Sessions",
+        "audience": "All",
+        "location": "Royal Olympic Hotel \u2013 main conference room (TBC)"
+      },
+      {
+        "time": "During AM",
+        "title": "Coffee Break (Networking)",
+        "type": "Networking",
+        "audience": "All",
+        "location": "Royal Olympic Hotel \u2013 catering area (TBC)"
+      },
+      {
+        "time": "Midday",
+        "title": "Lunch (Networking)",
+        "type": "Networking",
+        "audience": "All",
+        "location": "Royal Olympic Hotel \u2013 catering area (TBC)"
+      },
+      {
+        "time": "PM",
+        "title": "Presentations (PM block)",
+        "type": "Sessions",
+        "audience": "All",
+        "location": "Royal Olympic Hotel \u2013 main conference room (TBC)"
+      },
+      {
+        "time": "13:30\u201317:30",
+        "title": "Presentations & Workshop Session",
+        "type": "Workshop",
+        "audience": "All",
+        "location": "Royal Olympic Hotel \u2013 rooms TBC"
+      },
+      {
+        "time": "19:30\u201323:00",
+        "title": "EAC Airshow Gala Dinner & Annual Awards",
+        "type": "Gala",
+        "audience": "Delegates & Guests",
+        "location": "Royal Olympic Hotel \u2013 Roof Garden Restaurant & Bar"
+      },
+      {
+        "time": "19:30\u201323:00",
+        "title": "Marketing Awards & Prize Draw",
+        "type": "Awards",
+        "audience": "Delegates & Guests",
+        "location": "Royal Olympic Hotel \u2013 Roof Garden Restaurant & Bar"
+      }
+    ]
+  },
+  {
+    "date": "2026-02-27",
+    "day_label": "Friday 27 Feb 2026",
+    "items": [
+      {
+        "time": "AM",
+        "title": "Day 2 Opening",
+        "type": "Plenary",
+        "audience": "All",
+        "location": "Royal Olympic Hotel \u2013 main conference room (TBC)"
+      },
+      {
+        "time": "AM",
+        "title": "Exhibition Area Open",
+        "type": "Exhibition",
+        "audience": "All",
+        "location": "Royal Olympic Hotel \u2013 exhibition area (TBC)"
+      },
+      {
+        "time": "09:00\u201312:30",
+        "title": "Presentations (AM block)",
+        "type": "Sessions",
+        "audience": "All",
+        "location": "Royal Olympic Hotel \u2013 main conference room (TBC)"
+      },
+      {
+        "time": "During AM",
+        "title": "Coffee Break (Networking)",
+        "type": "Networking",
+        "audience": "All",
+        "location": "Royal Olympic Hotel \u2013 catering area (TBC)"
+      },
+      {
+        "time": "13:30\u201317:00",
+        "title": "Marketing Workshop",
+        "type": "Workshop",
+        "audience": "All",
+        "location": "Royal Olympic Hotel \u2013 room TBC",
+        "note": "TBC in the information pack"
+      },
+      {
+        "time": "TBC",
+        "title": "Convention Close",
+        "type": "Plenary",
+        "audience": "All",
+        "location": "Royal Olympic Hotel \u2013 main conference room (TBC)"
+      }
+    ]
+  }
+]

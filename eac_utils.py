@@ -1,0 +1,153 @@
+from __future__ import annotations
+
+import json
+from pathlib import Path
+from typing import Any, Dict, List, Optional
+
+import streamlit as st
+
+
+DATA_DIR = Path(__file__).parent / "data"
+
+
+def inject_global_css() -> None:
+    """Inject a lightweight, modern style layer.
+
+    Streamlit's theming controls colors and fonts via config.toml, but not
+    higher-level layout polish (hero sections, cards, spacing). We keep the CSS
+    small and resilient to class-name changes by styling our own HTML elements.
+    """
+
+    css = r"""
+<style>
+  /* Layout: keep content readable on wide screens */
+  section.main > div { max-width: 1100px; }
+  @media (max-width: 768px) {
+    section.main > div { padding-left: 0.9rem; padding-right: 0.9rem; }
+  }
+
+  /* Hero */
+  .eac-hero {
+    border-radius: 20px;
+    padding: 22px 22px 18px 22px;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    background:
+      radial-gradient(1200px 450px at 15% 0%, rgba(59, 130, 246, 0.20), rgba(255,255,255,0) 60%),
+      radial-gradient(900px 380px at 85% 10%, rgba(245, 158, 11, 0.18), rgba(255,255,255,0) 55%),
+      linear-gradient(180deg, rgba(255,255,255,0.9), rgba(248,250,252,0.92));
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
+  }
+  .eac-hero h1 { margin: 0; font-size: 1.85rem; line-height: 1.2; }
+  .eac-hero p { margin: 0.35rem 0 0 0; font-size: 1.0rem; opacity: 0.9; }
+  .eac-meta { margin-top: 0.8rem; display: flex; flex-wrap: wrap; gap: 8px; }
+
+  /* Pills */
+  .eac-pill {
+    display:inline-flex; align-items:center;
+    padding: 4px 10px; border-radius: 999px;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    background: rgba(255, 255, 255, 0.75);
+    font-size: 0.86rem;
+  }
+
+  /* Cards */
+  .eac-card {
+    border-radius: 18px;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    background: rgba(255,255,255,0.86);
+    box-shadow: 0 8px 22px rgba(2, 6, 23, 0.05);
+    padding: 14px 14px 12px 14px;
+    height: 100%;
+  }
+  .eac-card h3 { margin: 0; font-size: 1.05rem; }
+  .eac-card p { margin: 0.35rem 0 0 0; opacity: 0.92; }
+  .eac-card small { opacity: 0.75; }
+
+  /* Section headers */
+  .eac-section-title { margin: 0.4rem 0 0.2rem 0; font-size: 1.25rem; }
+  .eac-muted { opacity: 0.8; }
+
+  /* Reduce visual noise */
+  div[data-testid="stVerticalBlockBorderWrapper"] { border-radius: 18px; }
+
+  /* Hide Streamlit footer */
+  footer { visibility: hidden; }
+</style>
+"""
+    st.markdown(css, unsafe_allow_html=True)
+
+
+@st.cache_data(show_spinner=False)
+def load_json(filename: str) -> Any:
+    path = DATA_DIR / filename
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def pill(text: str) -> str:
+    return f"<span class='eac-pill'>{text}</span>"
+
+
+def page_header(title: str, subtitle: Optional[str] = None) -> None:
+    st.markdown(f"# {title}")
+    if subtitle:
+        st.caption(subtitle)
+
+
+def hero(title: str, subtitle: str, meta: List[str]) -> None:
+    meta_html = "".join([f"<span class='eac-pill'>{m}</span>" for m in meta])
+    st.markdown(
+        f"""
+        <div class="eac-hero">
+          <h1>{title}</h1>
+          <p>{subtitle}</p>
+          <div class="eac-meta">{meta_html}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def card(title: str, text: str, icon: str = "") -> None:
+    icon_html = f"<span style='font-size:1.2rem;margin-right:8px'>{icon}</span>" if icon else ""
+    st.markdown(
+        f"""
+        <div class="eac-card">
+          <h3>{icon_html}{title}</h3>
+          <p>{text}</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def section_title(title: str, subtitle: str | None = None) -> None:
+    st.markdown(f"<div class='eac-section-title'><strong>{title}</strong></div>", unsafe_allow_html=True)
+    if subtitle:
+        st.markdown(f"<div class='eac-muted'>{subtitle}</div>", unsafe_allow_html=True)
+
+
+def top_nav(links: Dict[str, str]) -> None:
+    """A clean top navigation bar using st.page_link.
+
+    This is designed to work with client.showSidebarNavigation=false.
+    """
+    c1, c2, c3, c4, c5, c6 = st.columns([1.15, 1, 1, 1, 1, 1.25])
+    with c1:
+        st.page_link("app.py", label="🏠 Home")
+    with c2:
+        st.page_link("pages/1_Programme.py", label="📅 Programme")
+    with c3:
+        st.page_link("pages/0_Tickets.py", label="🎟 Tickets")
+    with c4:
+        st.page_link("pages/4_Speakers.py", label="🎙 Speakers")
+    with c5:
+        st.page_link("pages/3_Hotel_Guide.py", label="🏨 Hotel")
+    with c6:
+        st.link_button("Book now", links.get("register_page", links.get("event_details", "")))
+
+
+def info_card(title: str, lines: List[str]) -> None:
+    with st.container(border=True):
+        st.markdown(f"### {title}")
+        for ln in lines:
+            st.write(ln)

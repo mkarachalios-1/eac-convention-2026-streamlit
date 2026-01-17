@@ -1,7 +1,7 @@
 import streamlit as st
 from pathlib import Path
 
-from utils import load_json, inject_global_css, top_nav, section_title
+from eac_utils import load_json, inject_global_css, top_nav, section_title
 
 
 links = load_json("links.json")

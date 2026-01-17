@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-from utils import (
+from eac_utils import (
     load_json,
     inject_global_css,
     top_nav,

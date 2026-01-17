@@ -1,6 +1,6 @@
 import streamlit as st
 
-from utils import load_json, inject_global_css, top_nav, section_title, card
+from eac_utils import load_json, inject_global_css, top_nav, section_title, card
 
 
 content = load_json("content.json")

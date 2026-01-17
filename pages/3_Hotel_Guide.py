@@ -1,7 +1,7 @@
 import streamlit as st
 from streamlit.components.v1 import iframe
 
-from utils import load_json, inject_global_css, top_nav, section_title, card
+from eac_utils import load_json, inject_global_css, top_nav, section_title, card
 
 
 links = load_json("links.json")

@@ -1,38 +1,73 @@
 import streamlit as st
 
-from utils import load_json, page_header
+from utils import load_json, inject_global_css, top_nav, section_title, card
 
 
-page_header("Athens guide", "Practical travel notes and curated highlights for delegates.")
+links = load_json("links.json")
+content = load_json("content.json")
 
-st.subheader("Arrival & getting into the city")
-st.write("• Athens International Airport (ATH) is ~33 km from the city centre.")
-st.write("• Typical options: Metro Line 3 (direct), Express bus X95 to Syntagma (24/7), or taxi.")
-st.write("• If you are arriving late, pre-booked taxi/transfer reduces uncertainty on pricing and availability.")
+inject_global_css()
+top_nav(links)
 
-st.subheader("Public transport inside Athens")
-st.write("• Metro is usually the fastest option for central movement; several stations include archaeological displays.")
-st.write("• Walking works well in the historic centre—many streets around the Acropolis are pedestrianised.")
-st.write("• Trams/buses extend coverage to coastal areas.")
+section_title("Athens guide", "Practical travel notes and curated highlights for delegates.")
 
-st.subheader("Must-visit attractions (shortlist)")
-st.write("• Acropolis (go early).")
-st.write("• Acropolis Museum (directly below the hill).")
-st.write("• Plaka & Anafiotika (historic neighbourhoods).")
-st.write("• Ancient Agora & Temple of Hephaestus.")
-st.write("• Monastiraki Square & flea market.")
-st.write("• Mount Lycabettus viewpoint (sunset).")
+st.markdown(f"<div class='eac-card'><p>{content.get('host_city','')}</p></div>", unsafe_allow_html=True)
 
-st.subheader("Food and culture")
-st.write("• Traditional dishes: moussaka, souvlaki, fresh seafood, meze-style sharing.")
-st.write("• Consider a 'taverna night' for an informal group dinner outside the convention programme.")
+section_title("Travel to Athens")
+tcols = st.columns(2)
+travel = content.get("travel_to_athens", [])
+with tcols[0]:
+    card("By air", "Athens International Airport (ATH) with Metro Line 3, express buses, and taxis.", icon="✈️")
+with tcols[1]:
+    card("By sea", "Piraeus Port offers island connections and ferry links.", icon="⛴️")
 
-st.subheader("Entry requirements")
-st.warning("Do not rely on informal sources for visa/entry requirements. Confirm via your government travel advisory and official Greek/Schengen guidance.")
+st.write("")
+card("Getting around", "Modern Metro, tram, and bus network; central areas are walkable.", icon="🚇")
 
-st.subheader("Practicalities")
-st.write("• Currency: Euro (€).")
-st.write("• Power: Type C/F plugs, 230V/50Hz.")
-st.write("• English is widely spoken in tourist areas and hotels.")
+section_title("Arrival & getting into the city")
+a1, a2 = st.columns(2)
+with a1:
+    card("Airport → centre", "Metro Line 3, X95 bus (Syntagma), or taxi/private transfer.", icon="🧳")
+with a2:
+    card("Late arrivals", "Consider pre-booked transfers to reduce pricing and availability uncertainty.", icon="🌙")
 
-st.info("If you want, add curated restaurant/cafe recommendations and walking routes (with Google Maps links).")
+section_title("Getting around")
+g1, g2 = st.columns(2)
+with g1:
+    card("Metro", "Fast for central movement; some stations include archaeological displays.", icon="🚇")
+with g2:
+    card("Walkability", "Historic centre is pedestrian-friendly; plan comfortable shoes.", icon="👟")
+
+section_title("Must-visit shortlist")
+ml, mr = st.columns(2)
+with ml:
+    st.markdown(
+        "<div class='eac-card'><h3>🏛️ Classics</h3><p>• Acropolis (go early)<br>• Acropolis Museum<br>• Ancient Agora & Temple of Hephaestus</p></div>",
+        unsafe_allow_html=True,
+    )
+with mr:
+    st.markdown(
+        "<div class='eac-card'><h3>🌆 Neighbourhoods & views</h3><p>• Plaka & Anafiotika<br>• Monastiraki & flea market<br>• Lycabettus viewpoint (sunset)</p></div>",
+        unsafe_allow_html=True,
+    )
+
+section_title("Food & culture")
+card("Rooftop dining", "Popular in central Athens—reserve ahead during busy periods.", icon="🍽️")
+
+section_title("Entry requirements")
+st.warning(
+    "Confirm visa/entry requirements via official government sources (your country guidance and official Greek/Schengen rules)."
+)
+
+section_title("Practicalities")
+p1, p2 = st.columns(2)
+with p1:
+    card("Currency", "Euro (€)", icon="💶")
+    st.write("")
+    card("Power", "Type C/F, 230V/50Hz", icon="🔌")
+with p2:
+    card("Language", "English widely spoken in tourist areas and hotels", icon="🗣️")
+    st.write("")
+    card("Delegate tip", "Plan a short walk in Plaka after sessions—Athens works well as a compact city break.", icon="🗺️")
+
+st.caption("If you want, add curated restaurant/cafe recommendations and walking routes with map links.")

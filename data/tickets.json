@@ -1,0 +1,26 @@
+[
+  {
+    "ticket_type": "Full Delegate",
+    "includes": "All presentations and networking events; includes access to workshops where applicable (some workshops may be invitation-only or require separate registration).",
+    "price_eur": 560,
+    "notes": "Price shown on the official EAC booking portal. Confirm the latest price and availability before purchase."
+  },
+  {
+    "ticket_type": "Delegate Guest",
+    "includes": "Access to coffee breaks and social events only (per the booking portal).",
+    "price_eur": 460,
+    "notes": "Published as a separate ticket type on the booking portal; confirm the latest price and what is included before purchase."
+  },
+  {
+    "ticket_type": "Exhibition Stand with Screen (add-on)",
+    "includes": "3m exhibition space with TV screen and blue panels; must be purchased with a Full Delegate ticket.",
+    "price_eur": 95,
+    "notes": "Availability may be limited; check the portal for current status."
+  },
+  {
+    "ticket_type": "Workshop tickets (non-delegate)",
+    "includes": "Non-delegate access to specific workshops (e.g., FDD or Formation) as listed on the booking portal.",
+    "price_eur": 95,
+    "notes": "Each workshop may have eligibility and priority rules; follow the registration guidance on the portal."
+  }
+]

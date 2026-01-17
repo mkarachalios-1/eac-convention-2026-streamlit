@@ -19,56 +19,92 @@
   },
   {
     "name": "Jorg Thurnheer",
-    "role": "Board Member \u2013 Aviation Regulator",
+    "role": "Board Member – Aviation Regulator",
     "bio": "",
     "type": "Board"
   },
   {
     "name": "Helen Webb",
-    "role": "Board Member \u2013 Marketing Consultant",
+    "role": "Board Member – Marketing Consultant",
     "bio": "",
     "type": "Board"
   },
   {
     "name": "Pablo Gonzalez",
-    "role": "Board Member \u2013 Event Organiser",
+    "role": "Board Member – Event Organiser",
     "bio": "",
     "type": "Board"
   },
   {
     "name": "Massimo Farugia",
-    "role": "Board Member \u2013 Event Organiser",
+    "role": "Board Member – Event Organiser",
     "bio": "",
     "type": "Board"
   },
   {
     "name": "Jean-Noel Bouillaguet",
-    "role": "Board Member \u2013 Flying Display Director",
+    "role": "Board Member – Flying Display Director",
     "bio": "",
     "type": "Board"
   },
   {
     "name": "Alberto Moretti",
-    "role": "Board Member \u2013 Flying Display Director",
+    "role": "Board Member – Flying Display Director",
     "bio": "",
     "type": "Board"
   },
   {
     "name": "Zbynek Pavlacik",
-    "role": "Board Member \u2013 Event Organiser",
+    "role": "Board Member – Event Organiser",
     "bio": "",
     "type": "Board"
   },
   {
     "name": "Mike Ling MBE",
-    "role": "Board Member \u2013 Display Pilot",
+    "role": "Board Member – Display Pilot",
     "bio": "",
     "type": "Board"
   },
   {
     "name": "Gilbert Beukenberghs",
-    "role": "Honorary Chairman \u2013 Event Organiser",
+    "role": "Honorary Chairman – Event Organiser",
     "bio": "",
     "type": "Board"
+  },
+  {
+    "name": "Marcus Jannitto",
+    "role": "USAF (Retd)",
+    "bio": "Leadership and culture; focus on what makes airshows truly great.",
+    "type": "Speaker"
+  },
+  {
+    "name": "Amelia Richardson",
+    "role": "Aviator and content creator (\"Amelia The Glider Pilot\")",
+    "bio": "Inspiring the next generation of aviation professionals.",
+    "type": "Speaker"
+  },
+  {
+    "name": "Richard \"Rich\" Pillans",
+    "role": "Boeing UK Chief Test Pilot; Flying Display Director",
+    "bio": "Safety, test flying, and operational excellence.",
+    "type": "Speaker"
+  },
+  {
+    "name": "Capt Alex \"Noble\" Stegmair",
+    "role": "German Air Force EF2000 Pilot (Solo Display)",
+    "bio": "Display Team Germany and military display culture.",
+    "type": "Speaker"
+  },
+  {
+    "name": "Luke Carrico",
+    "role": "Airshow Commentator",
+    "bio": "The art, impact, and future of airshow commentary.",
+    "type": "Speaker"
+  },
+  {
+    "name": "Adam Landau",
+    "role": "Airshow Commentator and producer (PlanesTV)",
+    "bio": "The art, impact, and future of airshow commentary.",
+    "type": "Speaker"
   }
 ]

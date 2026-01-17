@@ -1,26 +1,54 @@
 import streamlit as st
 import pandas as pd
 
-from utils import load_json, page_header
+from utils import load_json, inject_global_css, top_nav, section_title, card
 
-
-page_header("Sponsors & partnering", "High-level overview for delegates and potential partners.")
 
 info = load_json("info.json")
+links = load_json("links.json")
 sponsors = load_json("sponsors.json")
 
+inject_global_css()
+top_nav(links)
+
+section_title("Partners & sponsors", "Official partner list is maintained on the EAC website; package summaries below are indicative.")
+
+def fmt_eur(x):
+    if x is None or x == "":
+        return ""
+    return f"€{int(x):,}"
+
+st.link_button("View 2026 partners (official EAC site)", links["partners_page"])
+st.markdown(
+    "<div class='eac-card'><p>If your organisation is already a partner/sponsor, please confirm logo and preferred description so we can publish accurately.</p></div>",
+    unsafe_allow_html=True,
+)
+
+st.markdown("---")
+
+section_title("Partner packages", "Quick scan cards (mobile-first) + table for reference.")
 df = pd.DataFrame(sponsors)
-df_display = df.copy()
-df_display["Cost (EUR)"] = df_display["cost_eur"].apply(lambda x: "" if x is None else f"{int(x):,}")
-df_display = df_display[["tier", "status", "quantity", "Cost (EUR)", "notes"]]
-df_display.rename(columns={"tier":"Tier", "status":"Status", "quantity":"Availability", "notes":"Notes"}, inplace=True)
 
-st.subheader("Partner packages (summary)")
-st.dataframe(df_display, use_container_width=True, hide_index=True)
+cols = st.columns(2)
+for i, row in enumerate(df.to_dict(orient="records")):
+    cost = fmt_eur(row.get("cost_eur"))
+    cost_txt = f" • {cost}" if cost else ""
+    with cols[i % 2]:
+        card(
+            row.get("tier", ""),
+            f"Status: <strong>{row.get('status','')}</strong> • Availability: {row.get('quantity','')}{cost_txt}<br><small>{row.get('notes','')}</small>",
+            icon="🤝",
+        )
+        st.write("")
 
-st.subheader("Partner benefits (selected)")
-st.write("The information pack lists benefits such as programme adverts, website presence, banners, and mentions during sessions. Final inclusions should be confirmed in writing for each sponsor.")
+with st.expander("Show as table (reference)", expanded=False):
+    df_display = df.copy()
+    df_display["Cost"] = df_display["cost_eur"].apply(fmt_eur)
+    df_display = df_display[["tier", "status", "quantity", "Cost", "notes"]]
+    df_display.rename(columns={"tier": "Tier", "status": "Status", "quantity": "Availability", "notes": "Notes"}, inplace=True)
+    st.dataframe(df_display, use_container_width=True, hide_index=True)
+
+section_title("Partnering enquiries")
 st.write(f"For partnering enquiries: **{info['contact_email']}**")
 
-st.subheader("Sponsor logos")
-st.info("Place logo files in assets/ and reference them here once confirmed. For now, this section is intentionally empty to avoid publishing outdated sponsor lists.")
+st.info("To update packages or add sponsor profiles, edit data/sponsors.json.")

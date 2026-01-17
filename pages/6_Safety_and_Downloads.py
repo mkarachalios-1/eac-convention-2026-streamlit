@@ -1,10 +1,15 @@
 import streamlit as st
 from pathlib import Path
 
-from utils import page_header
+from utils import load_json, inject_global_css, top_nav, section_title
 
 
-page_header("Safety (Barker) & downloads", "Resources provided for delegates. Confirm distribution permissions before wide sharing.")
+links = load_json("links.json")
+
+inject_global_css()
+top_nav(links)
+
+section_title("Safety (Barker) & downloads", "Confirm distribution permissions before wide sharing.")
 
 DOWNLOADS = Path(__file__).resolve().parents[1] / "downloads"
 

@@ -1,12 +1,13 @@
 {
   "event_name": "European Airshow Council Convention 2026",
-  "dates": "25\u201327 February 2026",
+  "dates": "25–27 February 2026",
   "city": "Athens, Greece",
   "venue": "Royal Olympic Hotel",
-  "venue_address": "28\u201334 Athanasiou Diakou Str, Athens 117 43, Greece",
+  "venue_address": "28–34 Athanasiou Diakou Str, Athens 117 43, Greece",
   "notes": [
-    "Room allocations and some session details are marked TBC in the information pack and should be confirmed closer to the event date.",
-    "A small number of sections in the information pack appear to contain legacy content (e.g., non-Greek currency references). This app avoids repeating those elements and instead links to the official booking portals."
+    "Programme locations are shown where known; items marked TBC should be confirmed before final publication.",
+    "Ticket prices and availability can change; this app links to the official booking portal as the source of truth.",
+    "If you plan to store downloadable files in GitHub, keep an eye on repository size and any distribution permissions."
   ],
   "contact_email": "charles@european-airshow.com",
   "emergency_numbers": [
@@ -28,9 +29,9 @@
     }
   ],
   "local_tips": [
-    "Currency: Euro (\u20ac).",
+    "Currency: Euro (€).",
     "Power: Type C/F plugs, 230V/50Hz.",
     "English is widely spoken in tourist areas and hotels.",
-    "For airport\u2013city travel: Metro Line 3, Express bus X95 (Syntagma), or taxi."
+    "Airport–city travel: Metro Line 3, Express bus X95 (Syntagma), or taxi."
   ]
 }

@@ -1,13 +1,19 @@
 import streamlit as st
 import pandas as pd
 
-from utils import load_json, page_header, pill
+from utils import load_json, inject_global_css, top_nav, section_title, pill
 
 
-info = load_json("info.json")
+links = load_json("links.json")
 schedule = load_json("schedule.json")
 
-page_header("Programme & locations", "Times are per the information pack; locations marked TBC should be finalised before publication.")
+inject_global_css()
+top_nav(links)
+
+section_title(
+    "Programme & locations",
+    "Built for mobile: day tabs + searchable list. Locations marked TBC should be finalised before publication.",
+)
 
 # Build flat table
 rows = []
@@ -40,7 +46,33 @@ if type_filter:
 if show_tbc_only:
     fdf = fdf[fdf.apply(lambda r: "TBC" in (str(r["Location"]) + " " + str(r["Note"])), axis=1)]
 
-st.dataframe(fdf, use_container_width=True, hide_index=True)
+view_mode = st.radio("View", ["Cards (mobile-first)", "Table"], horizontal=True)
+
+if not day_filter:
+    st.info("Select at least one day to view the programme.")
+    st.stop()
+
+if view_mode == "Table":
+    st.dataframe(fdf, use_container_width=True, hide_index=True)
+else:
+    # Day tabs are easier to scan on mobile
+    tabs = st.tabs(day_filter)
+    for tab_day, tab in zip(day_filter, tabs):
+        with tab:
+            day_items = fdf[fdf["Date"] == tab_day].copy()
+            if day_items.empty:
+                st.info("No sessions match the selected filters.")
+                continue
+            for _, r in day_items.iterrows():
+                with st.container(border=True):
+                    st.markdown(
+                        f"{pill(r['Time'])} {pill(r['Type'])} {pill(r['Audience'])}",
+                        unsafe_allow_html=True,
+                    )
+                    st.markdown(f"**{r['Session']}**")
+                    st.write(f"📍 {r['Location']}")
+                    if str(r.get("Note", "")).strip():
+                        st.caption(str(r.get("Note", "")))
 
 st.markdown("### Location sanity checks")
 st.write("• Confirm room allocations (and capacity) for all parallel workshops.")

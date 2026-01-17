@@ -10,8 +10,7 @@
   "partners_page": "https://www.europeanairshow.org/2023-sponsors",
   "register_page": "https://www.europeanairshow.org/event-details/eac-convention-2026",
   "next_convention_page": "https://www.europeanairshow.org/book-for-the-next-convention",
-  "opening_video_guidelines_url": "",
-  "opening_video_upload_url": "",
-  "convention_booklet_url": "",
-  "hotel_roof_restaurant": "https://www.royalolympic.com/athens-gourmet-restaurant-athens/"
+  "hotel_roof_restaurant": "https://www.royalolympic.com/athens-gourmet-restaurant-athens/",
+  "external_safety_app": "https://airshow-safety-app-test.streamlit.app/",
+  "external_trajectory_app": "https://airshow-trajectory-app.streamlit.app/"
 }

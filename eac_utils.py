@@ -131,18 +131,25 @@ def top_nav(links: Dict[str, str]) -> None:
 
     This is designed to work with client.showSidebarNavigation=false.
     """
-    c1, c2, c3, c4, c5, c6 = st.columns([1.15, 1, 1, 1, 1, 1.25])
+    # Keep the top nav compact for mobile; it will wrap naturally on small screens.
+    c1, c2, c3, c4, c5, c6, c7, c8, c9 = st.columns([1.05, 1, 1, 1, 1, 1, 1, 1, 1.2])
     with c1:
         st.page_link("app.py", label="🏠 Home")
     with c2:
         st.page_link("pages/1_Programme.py", label="📅 Programme")
     with c3:
-        st.page_link("pages/0_Tickets.py", label="🎟 Tickets")
-    with c4:
         st.page_link("pages/4_Speakers.py", label="🎙 Speakers")
-    with c5:
+    with c4:
         st.page_link("pages/3_Hotel_Guide.py", label="🏨 Hotel")
+    with c5:
+        st.page_link("pages/2_Athens_Guide.py", label="🏛 Athens")
     with c6:
+        st.page_link("pages/5_Sponsors.py", label="🤝 Sponsors")
+    with c7:
+        st.page_link("pages/7_Contacts.py", label="☎️ Contacts")
+    with c8:
+        st.page_link("pages/0_Apps.py", label="🧩 Tools")
+    with c9:
         st.link_button("Book now", links.get("register_page", links.get("event_details", "")))
 
 

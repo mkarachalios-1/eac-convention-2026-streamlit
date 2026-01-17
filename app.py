@@ -22,7 +22,6 @@ st.set_page_config(
 info = load_json("info.json")
 links = load_json("links.json")
 content = load_json("content.json")
-tickets = load_json("tickets.json")
 speakers = load_json("speakers.json")
 
 inject_global_css()
@@ -42,9 +41,9 @@ with cta1:
 with cta2:
     st.page_link("pages/1_Programme.py", label="📅 Programme", use_container_width=True)
 with cta3:
-    st.page_link("pages/0_Tickets.py", label="💶 Tickets & rates", use_container_width=True)
+    st.page_link("pages/3_Hotel_Guide.py", label="🏨 Hotel guide", use_container_width=True)
 with cta4:
-    st.link_button("🏨 Hotel booking", links["hotel_booking_portal"], use_container_width=True)
+    st.page_link("pages/0_Apps.py", label="🧩 Tools", use_container_width=True)
 
 st.write("")
 
@@ -94,30 +93,22 @@ for i, (day, items) in enumerate(pg.items()):
         )
 
 st.write("")
-section_title("Tickets", "Prices and availability are controlled by the official booking portal.")
-ticket_df = pd.DataFrame(tickets)
-headline = ticket_df[ticket_df["ticket_type"].isin(["Full Delegate", "Delegate Guest"])].copy()
-
-tc1, tc2, tc3 = st.columns([1, 1, 1.2])
-if not headline.empty and len(headline) >= 2:
-    fd = headline.iloc[0]
-    dg = headline.iloc[1]
-    with tc1:
-        card("Full Delegate", f"€{int(fd['price_eur']):,} • {fd['includes']}", icon="🎟")
-    with tc2:
-        card("Delegate Guest", f"€{int(dg['price_eur']):,} • {dg['includes']}", icon="🥂")
-    with tc3:
-        st.markdown(
-            "<div class='eac-card'><h3>✅ Book confidently</h3>"
-            "<p>Use the portal for live availability, workshop rules, and add-ons. "
-            "If any published numbers conflict, treat the portal as the source of truth.</p>"
-            "</div>",
-            unsafe_allow_html=True,
-        )
-else:
-    st.write("Ticket data not found. Update data/tickets.json.")
-
-st.caption("Workshops may have eligibility rules (e.g., invitation-only) and some exhibitor options are add-ons.")
+section_title("Tools", "Optional analytics utilities for delegates and organisers.")
+t1, t2 = st.columns(2)
+with t1:
+    st.markdown(
+        "<div class='eac-card'><h3>🛡️ Airshow Safety App</h3>"
+        "<p>Quick access to safety indicators and reference views (beta).</p></div>",
+        unsafe_allow_html=True,
+    )
+    st.link_button("Open safety app", links.get("external_safety_app", "https://airshow-safety-app-test.streamlit.app/"), use_container_width=True)
+with t2:
+    st.markdown(
+        "<div class='eac-card'><h3>📈 Airshow Trajectory App</h3>"
+        "<p>Trajectory visualisation and analysis utilities (beta).</p></div>",
+        unsafe_allow_html=True,
+    )
+    st.link_button("Open trajectory app", links.get("external_trajectory_app", "https://airshow-trajectory-app.streamlit.app/"), use_container_width=True)
 
 st.write("")
 section_title("Speakers – first announcements", "A focused snapshot; the official list can evolve.")

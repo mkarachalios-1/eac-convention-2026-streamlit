@@ -18,33 +18,9 @@
     "type": "Board"
   },
   {
-    "name": "Jorg Thurnheer",
-    "role": "Board Member – Aviation Regulator",
-    "bio": "",
-    "type": "Board"
-  },
-  {
-    "name": "Helen Webb",
-    "role": "Board Member – Marketing Consultant",
-    "bio": "",
-    "type": "Board"
-  },
-  {
-    "name": "Pablo Gonzalez",
-    "role": "Board Member – Event Organiser",
-    "bio": "",
-    "type": "Board"
-  },
-  {
-    "name": "Massimo Farugia",
-    "role": "Board Member – Event Organiser",
-    "bio": "",
-    "type": "Board"
-  },
-  {
-    "name": "Jean-Noel Bouillaguet",
-    "role": "Board Member – Flying Display Director",
-    "bio": "",
+    "name": "Adam Collins",
+    "role": "Board Member",
+    "bio": "Royal Air Force officer; Officer Commanding RAF Aerobatic Team (Red Arrows) at time of appointment to the EAC Board.",
     "type": "Board"
   },
   {
@@ -54,7 +30,31 @@
     "type": "Board"
   },
   {
-    "name": "Zbynek Pavlacik",
+    "name": "Frederick Akary",
+    "role": "Board Member",
+    "bio": "Commercial and warbird pilot (France); experience spanning display operations and warbird aviation.",
+    "type": "Board"
+  },
+  {
+    "name": "Helen Webb",
+    "role": "Board Member – Marketing Consultant",
+    "bio": "",
+    "type": "Board"
+  },
+  {
+    "name": "Jean-Noel Bouillaget",
+    "role": "Board Member – Flying Display Director",
+    "bio": "",
+    "type": "Board"
+  },
+  {
+    "name": "Jorg Thurnheer",
+    "role": "Board Member – Aviation Regulator",
+    "bio": "",
+    "type": "Board"
+  },
+  {
+    "name": "Massimo Farrugia",
     "role": "Board Member – Event Organiser",
     "bio": "",
     "type": "Board"
@@ -66,8 +66,26 @@
     "type": "Board"
   },
   {
-    "name": "Gilbert Beukenberghs",
-    "role": "Honorary Chairman – Event Organiser",
+    "name": "Nicolas Rossier",
+    "role": "Board Member",
+    "bio": "Board Member.",
+    "type": "Board"
+  },
+  {
+    "name": "Pablo Gonzalez",
+    "role": "Board Member – Event Organiser",
+    "bio": "",
+    "type": "Board"
+  },
+  {
+    "name": "Zbynek Pavalcik",
+    "role": "Board Member – Event Organiser",
+    "bio": "",
+    "type": "Board"
+  },
+  {
+    "name": "Gilbert Buekenberghs",
+    "role": "Honorary President",
     "bio": "",
     "type": "Board"
   },

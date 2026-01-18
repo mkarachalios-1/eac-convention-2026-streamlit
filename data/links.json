@@ -12,5 +12,10 @@
   "next_convention_page": "https://www.europeanairshow.org/book-for-the-next-convention",
   "hotel_roof_restaurant": "https://www.royalolympic.com/athens-gourmet-restaurant-athens/",
   "external_safety_app": "https://airshow-safety-app-test.streamlit.app/",
-  "external_trajectory_app": "https://airshow-trajectory-app.streamlit.app/"
+  "external_trajectory_app": "https://airshow-trajectory-app.streamlit.app/",
+  "boardmembers_page": "https://www.europeanairshow.org/boardmembers",
+  "hotel_geo_uri": "geo:37.967805,23.732317?z=19",
+  "hotel_openstreetmap": "https://www.openstreetmap.org/?mlat=37.967805&mlon=23.732317#map=19/37.967805/23.732317",
+  "hotel_google_maps": "https://www.google.com/maps?q=37.967805,23.732317",
+  "hotel_osm_map": "https://www.openstreetmap.org/#map=19/37.967805/23.732317"
 }

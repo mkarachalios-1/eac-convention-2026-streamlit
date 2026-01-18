@@ -8,6 +8,7 @@ import streamlit as st
 
 
 DATA_DIR = Path(__file__).parent / "data"
+ASSETS_DIR = Path(__file__).parent / "assets"
 
 
 def inject_global_css() -> None:
@@ -26,6 +27,10 @@ def inject_global_css() -> None:
     section.main > div { padding-left: 0.9rem; padding-right: 0.9rem; }
   }
 
+  /* Brand bar */
+  .eac-brand { display:flex; align-items:center; justify-content:space-between; gap: 12px; }
+  .eac-brand small { opacity: 0.75; }
+
   /* Hero */
   .eac-hero {
     border-radius: 20px;
@@ -34,11 +39,11 @@ def inject_global_css() -> None:
     background:
       radial-gradient(1200px 450px at 15% 0%, rgba(59, 130, 246, 0.20), rgba(255,255,255,0) 60%),
       radial-gradient(900px 380px at 85% 10%, rgba(245, 158, 11, 0.18), rgba(255,255,255,0) 55%),
-      linear-gradient(180deg, rgba(255,255,255,0.9), rgba(248,250,252,0.92));
+      linear-gradient(180deg, rgba(255,255,255,0.90), rgba(248,250,252,0.92));
     box-shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
   }
   .eac-hero h1 { margin: 0; font-size: 1.85rem; line-height: 1.2; }
-  .eac-hero p { margin: 0.35rem 0 0 0; font-size: 1.0rem; opacity: 0.9; }
+  .eac-hero p { margin: 0.35rem 0 0 0; font-size: 1.0rem; opacity: 0.90; }
   .eac-meta { margin-top: 0.8rem; display: flex; flex-wrap: wrap; gap: 8px; }
 
   /* Pills */
@@ -65,7 +70,7 @@ def inject_global_css() -> None:
 
   /* Section headers */
   .eac-section-title { margin: 0.4rem 0 0.2rem 0; font-size: 1.25rem; }
-  .eac-muted { opacity: 0.8; }
+  .eac-muted { opacity: 0.80; }
 
   /* Reduce visual noise */
   div[data-testid="stVerticalBlockBorderWrapper"] { border-radius: 18px; }
@@ -85,6 +90,28 @@ def load_json(filename: str) -> Any:
 
 def pill(text: str) -> str:
     return f"<span class='eac-pill'>{text}</span>"
+
+
+def brand_bar() -> None:
+    """Small brand header for all pages (EAC logo + app mark)."""
+    left, right = st.columns([1.15, 1])
+    eac_logo = ASSETS_DIR / "eac_logo.png"
+    app_logo = ASSETS_DIR / "app_logo.svg"
+
+    with left:
+        if eac_logo.exists():
+            st.image(str(eac_logo), width=220)
+        else:
+            st.markdown("**European Airshow Council**")
+
+    with right:
+        if app_logo.exists():
+            st.image(str(app_logo), width=250)
+        else:
+            st.markdown(
+                "<div style='text-align:right;font-weight:700;font-size:1.05rem'>EAC26 Delegate Hub</div>",
+                unsafe_allow_html=True,
+            )
 
 
 def page_header(title: str, subtitle: Optional[str] = None) -> None:
@@ -129,9 +156,12 @@ def section_title(title: str, subtitle: str | None = None) -> None:
 def top_nav(links: Dict[str, str]) -> None:
     """A clean top navigation bar using st.page_link.
 
-    This is designed to work with client.showSidebarNavigation=false.
+    Designed to work with client.showSidebarNavigation=false.
     """
-    # Keep the top nav compact for mobile; it will wrap naturally on small screens.
+    brand_bar()
+    st.write("")
+
+    # Compact top nav; wraps naturally on small screens.
     c1, c2, c3, c4, c5, c6, c7, c8, c9 = st.columns([1.05, 1, 1, 1, 1, 1, 1, 1, 1.2])
     with c1:
         st.page_link("app.py", label="🏠 Home")
@@ -144,7 +174,7 @@ def top_nav(links: Dict[str, str]) -> None:
     with c5:
         st.page_link("pages/2_Athens_Guide.py", label="🏛 Athens")
     with c6:
-        st.page_link("pages/5_Sponsors.py", label="🤝 Sponsors")
+        st.page_link("pages/5_Sponsors.py", label="🤝 Partners")
     with c7:
         st.page_link("pages/7_Contacts.py", label="☎️ Contacts")
     with c8:

@@ -14,7 +14,7 @@ from eac_utils import (
 
 st.set_page_config(
     page_title="EAC Convention 2026",
-    page_icon="✈️",
+    page_icon="assets/eac_logo.png",
     layout="wide",
     initial_sidebar_state="collapsed",
 )
@@ -22,7 +22,7 @@ st.set_page_config(
 info = load_json("info.json")
 links = load_json("links.json")
 content = load_json("content.json")
-speakers = load_json("speakers.json")
+people = load_json("speakers.json")
 
 inject_global_css()
 top_nav(links)
@@ -48,40 +48,20 @@ with cta4:
 st.write("")
 
 with st.container(border=True):
-    st.markdown(f"**{content.get('new_year_message','')}**")
+    st.markdown(f"**{content.get('welcome_message','')}**")
     st.write(content.get("welcome_text", ""))
 
 
-section_title("Why attend EAC26")
-c1, c2 = st.columns(2)
-why = content.get("why_attend", [])
-if len(why) >= 4:
-    with c1:
-        card(why[0]["title"], why[0]["text"], icon="🛡️")
+section_title("What is EAC26")
+cols = st.columns(2)
+items = content.get("what_is_eac26", [])
+for i, it in enumerate(items):
+    with cols[i % 2]:
+        card(it.get("title", ""), it.get("text", ""), icon=it.get("icon", "✈️"))
         st.write("")
-        card(why[2]["title"], why[2]["text"], icon="🧠")
-    with c2:
-        card(why[1]["title"], why[1]["text"], icon="🤝")
-        st.write("")
-        card(why[3]["title"], why[3]["text"], icon="🚀")
-else:
-    for item in why:
-        st.write(f"• **{item['title']}** — {item['text']}")
 
 st.write("")
-
-section_title("What to expect")
-expect_cols = st.columns(2)
-expect = content.get("what_to_expect", [])
-left = "<br>".join([f"• {x}" for x in expect[: len(expect)//2]])
-right = "<br>".join([f"• {x}" for x in expect[len(expect)//2 :]])
-with expect_cols[0]:
-    st.markdown(f"<div class='eac-card'><h3>✨ Experience</h3><p>{left}</p></div>", unsafe_allow_html=True)
-with expect_cols[1]:
-    st.markdown(f"<div class='eac-card'><h3>🏆 Recognition</h3><p>{right}</p></div>", unsafe_allow_html=True)
-
-st.write("")
-section_title("Programme at a glance", "Tap into the detailed programme for timings and locations.")
+section_title("Programme at a glance", "Use the Programme page for timings and locations.")
 pg = content.get("programme_glance", {})
 cols = st.columns(3)
 for i, (day, items) in enumerate(pg.items()):
@@ -93,41 +73,54 @@ for i, (day, items) in enumerate(pg.items()):
         )
 
 st.write("")
-section_title("Tools", "Optional analytics utilities for delegates and organisers.")
-t1, t2 = st.columns(2)
-with t1:
-    st.markdown(
-        "<div class='eac-card'><h3>🛡️ Airshow Safety App</h3>"
-        "<p>Quick access to safety indicators and reference views (beta).</p></div>",
-        unsafe_allow_html=True,
-    )
-    st.link_button("Open safety app", links.get("external_safety_app", "https://airshow-safety-app-test.streamlit.app/"), use_container_width=True)
-with t2:
-    st.markdown(
-        "<div class='eac-card'><h3>📈 Airshow Trajectory App</h3>"
-        "<p>Trajectory visualisation and analysis utilities (beta).</p></div>",
-        unsafe_allow_html=True,
-    )
-    st.link_button("Open trajectory app", links.get("external_trajectory_app", "https://airshow-trajectory-app.streamlit.app/"), use_container_width=True)
-
-st.write("")
-section_title("Speakers – first announcements", "A focused snapshot; the official list can evolve.")
-speaker_df = pd.DataFrame(speakers)
-sp = speaker_df[speaker_df["type"] == "Speaker"].copy()
+section_title("Speakers")
+df = pd.DataFrame(people)
+sp = df[df["type"] == "Speaker"].copy()
 if not sp.empty:
     top = sp.head(6)
     s_cols = st.columns(2)
     for i, row in enumerate(top.to_dict(orient="records")):
         with s_cols[i % 2]:
-            card(row["name"], f"{row['role']}<br><small>{row.get('bio','')}</small>", icon="🎙")
+            bio = (row.get("bio") or "").strip()
+            bio_html = f"<br><small>{bio}</small>" if bio else ""
+            card(row["name"], f"{row['role']}{bio_html}", icon="🎙")
             st.write("")
-    st.page_link("pages/4_Speakers.py", label="View speakers & board →")
+    st.page_link("pages/4_Speakers.py", label="View all speakers & board →")
 else:
-    st.info("Speakers will appear here once populated in data/speakers.json.")
+    st.info("Speakers will appear here as the programme is finalised.")
 
 st.write("")
-section_title("Athens", "History, modern energy, and a walkable centre.")
-st.markdown(f"<div class='eac-card'><p>{content.get('host_city','')}</p></div>", unsafe_allow_html=True)
+section_title("Tools")
+t1, t2 = st.columns(2)
+with t1:
+    st.markdown(
+        "<div class='eac-card'><h3>🛡️ Airshow Safety App</h3>"
+        "<p>Safety indicators and reference views.</p></div>",
+        unsafe_allow_html=True,
+    )
+    st.link_button(
+        "Open safety app",
+        links.get("external_safety_app", "https://airshow-safety-app-test.streamlit.app/"),
+        use_container_width=True,
+    )
+with t2:
+    st.markdown(
+        "<div class='eac-card'><h3>📈 Airshow Trajectory App</h3>"
+        "<p>Trajectory visualisation and analysis utilities.</p></div>",
+        unsafe_allow_html=True,
+    )
+    st.link_button(
+        "Open trajectory app",
+        links.get("external_trajectory_app", "https://airshow-trajectory-app.streamlit.app/"),
+        use_container_width=True,
+    )
+
+st.write("")
+section_title("Athens")
+st.markdown(
+    f"<div class='eac-card'><p>{content.get('host_city','')}</p></div>",
+    unsafe_allow_html=True,
+)
 
 st.write("")
 section_title("Venue & essentials")
@@ -155,10 +148,3 @@ with v2:
     for row in info.get("emergency_numbers", []):
         st.write(f"**{row['service']}:** {row['number']}")
     st.markdown("</div>", unsafe_allow_html=True)
-
-st.write("")
-with st.expander("Operational notes (for organisers / reviewers)", expanded=False):
-    for n in info.get("notes", []):
-        st.write(f"• {n}")
-
-st.caption("Built for Streamlit Community Cloud deployment (GitHub-backed).")

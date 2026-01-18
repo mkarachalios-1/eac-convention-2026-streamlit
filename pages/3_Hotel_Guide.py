@@ -24,9 +24,13 @@ with left:
     )
 
 with right:
-    # OpenStreetMap embed (no API key). Marker centred on Royal Olympic Hotel.
-    lat, lon = 37.9731, 23.7337
-    bbox = f"{lon-0.01}%2C{lat-0.006}%2C{lon+0.01}%2C{lat+0.006}"
+    lat = float(info.get("venue_lat", 37.9731))
+    lon = float(info.get("venue_lon", 23.7337))
+    zoom = int(info.get("venue_zoom", 18))
+
+    dlon = 0.0020 if zoom >= 18 else 0.01
+    dlat = 0.0015 if zoom >= 18 else 0.006
+    bbox = f"{lon-dlon}%2C{lat-dlat}%2C{lon+dlon}%2C{lat+dlat}"
     url = f"https://www.openstreetmap.org/export/embed.html?bbox={bbox}&layer=mapnik&marker={lat}%2C{lon}"
     iframe(url, height=260)
 
@@ -40,6 +44,16 @@ with c3:
     st.link_button("Convention booking portal", links["convention_booking_portal"])
 with c4:
     st.link_button("Roof Garden Restaurant", links.get("hotel_roof_restaurant", links["hotel_website"]))
+
+st.write("")
+d1, d2 = st.columns(2)
+with d1:
+    st.link_button("Directions (OpenStreetMap)", links.get("hotel_osm_map", ""))
+with d2:
+    st.link_button("Directions (Google Maps)", links.get("hotel_google_maps", ""))
+
+st.markdown("**Coordinates (for mobile navigation apps):**")
+st.code(info.get("venue_geo_uri", ""), language="text")
 
 st.subheader("Overview")
 st.write(content.get("hotel_blurb", ""))
@@ -55,11 +69,4 @@ with a2:
     st.write("")
     card("Transport", "Parking and transfers may be available—verify pricing and availability.", icon="🚗")
 
-st.caption("Treat amenities as indicative and confirm with the hotel for special requirements.")
-
-section_title("Organiser checklist")
-st.write("• Confirm room allocations and AV requirements for each session.")
-st.write("• Confirm exhibition area layout, power availability, and safety constraints.")
-st.write("• Confirm dinner seating plan, prize draw mechanics, and awards stage setup.")
-
-st.info("If you provide the final floor plan, this page can display it as an image/PDF for delegates.")
+st.caption("Amenities are indicative; confirm with the hotel for special requirements.")

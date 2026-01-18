@@ -1,36 +1,35 @@
 {
   "announcement_title": "EAC Convention 2026 lands in Athens",
-  "announcement_subtitle": "Programme highlights, speakers, tickets, and how to secure your place",
-  "new_year_message": "Happy New Year to all members of the airshow community. Here’s to a safe, successful, and inspiring season ahead.",
-  "welcome_heading": "Welcome to EAC Convention 2026",
-  "welcome_text": "We’re delighted to invite you to Athens for the European Airshow Council Convention, taking place 25–27 February 2026. Set beneath the Acropolis, EAC26 brings together the European airshow community to connect, learn, and shape the future of our industry.",
-  "why_attend": [
+  "announcement_subtitle": "Programme highlights, speakers, and key information for delegates",
+  "welcome_message": "Welcome all members of the European airshow community.",
+  "welcome_text": "We’re delighted to welcome you to Athens for the European Airshow Council Convention, taking place 25–27 February 2026. Set beneath the Acropolis, EAC26 brings together organisers, performers, suppliers, regulators and partners for three days of structured discussion, learning and connection — with everything located at the Royal Olympic Hotel.",
+
+  "what_is_eac26": [
     {
-      "title": "Safety & Standards",
-      "text": "Best practice, risk management, and regulatory updates."
+      "title": "A three-day, in-person EAC convention",
+      "text": "Workshops, presentations and exhibitor engagement for the European airshow community — focused on practical outcomes.",
+      "icon": "🏛️"
     },
     {
-      "title": "Networking",
-      "text": "Connect with organisers, performers, suppliers, and decision-makers."
+      "title": "Safety and standards in practice",
+      "text": "A space to share lessons, strengthen common standards, and align on good practice across organisers and performers.",
+      "icon": "🛡️"
     },
     {
-      "title": "Knowledge Sharing",
-      "text": "Workshops, seminars, and expert-led discussions."
+      "title": "Programme, exhibition and social functions",
+      "text": "Welcome reception, full-day programme, exhibitor area, and the Gala Dinner and awards evening.",
+      "icon": "🤝"
     },
     {
-      "title": "Industry Development",
-      "text": "Leadership, culture, and the future of flying displays."
+      "title": "Athens as the host city",
+      "text": "A compact, walkable centre — ideal for delegates attending on-site, with easy access from the airport and major landmarks nearby.",
+      "icon": "🚇"
     }
   ],
-  "what_to_expect": [
-    "Expert workshops and seminars",
-    "High-value networking opportunities",
-    "Exhibitors showcasing airshow-related services and products",
-    "Awards & recognition celebrating excellence across the industry"
-  ],
+
   "programme_glance": {
     "Wednesday 25 Feb": [
-      "Safety workshops: Military Fast Jet (invitation only), Flying Display Directors, Formation Pilots, Sustainability",
+      "Safety workshops (including Military Fast Jet invitation-only; Flying Display Directors; Formation Pilots; Sustainability)",
       "Welcome Drinks Reception & Buffet (evening)",
       "Exhibition area opens"
     ],
@@ -42,18 +41,11 @@
     ],
     "Friday 27 Feb": [
       "Morning presentations & exhibition access",
-      "Marketing Workshop (TBC)"
+      "Marketing workshop (TBC)"
     ]
   },
+
   "host_city": "Athens is where history meets modern energy. From the Acropolis and Plaka to rooftop dining and vibrant nightlife, it’s an ideal setting for both focused discussion and memorable downtime. Many delegates choose to extend their stay and enjoy Athens as a short city break.",
-  "travel_to_athens": [
-    "By air: Athens International Airport (ATH) with direct Metro, express buses, and taxis",
-    "By sea: Piraeus Port offers easy island connections",
-    "Getting around: a modern Metro, tram, and bus network makes moving around straightforward",
-    "Check entry requirements for Greece in advance"
-  ],
-  "hotel_blurb": "Royal Olympic Hotel (★★★★★) is located next to the Temple of Zeus and beneath the Acropolis. The hotel offers an iconic roof-garden restaurant and a central base for the convention and for delegates extending their stay.",
-  "speakers_intro": "First speaker announcements (more to follow).",
-  "opening_video_heading": "Convention Opening Video",
-  "opening_video_text": "Our partners PlanesTV will produce the official Convention Opening Video, celebrating the best of European air displays from 2025. Members can submit short clips for inclusion (submission guidance and upload links are provided in the app)."
+
+  "hotel_blurb": "Royal Olympic Hotel (★★★★★) is located next to the Temple of Zeus and beneath the Acropolis. The hotel offers an iconic roof-garden restaurant and a central base for the convention and for delegates extending their stay."
 }

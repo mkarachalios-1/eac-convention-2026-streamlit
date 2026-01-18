@@ -1,30 +1,18 @@
 [
   {
-    "tier": "Platinum",
-    "status": "SOLD",
-    "cost_eur": null,
-    "quantity": "SOLD",
-    "notes": "Top package; already allocated per information pack."
+    "tier": "Platinum Partner",
+    "partners": ["AEROPACT"]
   },
   {
-    "tier": "Gold",
-    "status": "Available",
-    "cost_eur": 6500,
-    "quantity": "x2",
-    "notes": "Includes partner visibility and benefits (see Partnering page)."
+    "tier": "Gold Partner",
+    "partners": ["Aerocreativ"]
   },
   {
-    "tier": "Silver",
-    "status": "Available",
-    "cost_eur": 2500,
-    "quantity": "x3",
-    "notes": "Includes partner visibility and benefits (see Partnering page)."
+    "tier": "Bronze Partner",
+    "partners": ["R5 AIR DISPLAYS LTD"]
   },
   {
-    "tier": "Bronze",
-    "status": "Available",
-    "cost_eur": 1250,
-    "quantity": "x8",
-    "notes": "Includes partner visibility and benefits (see Partnering page)."
+    "tier": "Supporting Partners",
+    "partners": ["Athens Flying Week", "Podimatas Group", "PlanesTV", "DroneV"]
   }
 ]

@@ -30,8 +30,3 @@ for i, row in enumerate(nums):
     with (e1 if i % 2 == 0 else e2):
         card(row.get("service", ""), row.get("number", ""), icon="🆘")
         st.write("")
-
-st.warning(
-    "If this app is public, avoid publishing personal mobile numbers without consent. "
-    "Prefer role-based inboxes and venue reception numbers."
-)

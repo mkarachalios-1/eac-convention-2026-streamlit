@@ -14,7 +14,7 @@ df = pd.DataFrame(people)
 
 section_title(
     "Speakers & EAC Board",
-    "Speaker lists evolve as confirmations are published. Use the official EAC site for the latest updates.",
+    "Short profiles to support on-site networking and session preparation.",
 )
 
 q = st.text_input("Search names / topics", value="", placeholder="Type a name, role, or keyword…")
@@ -43,23 +43,23 @@ def render_cards(sub: pd.DataFrame, empty_msg: str) -> None:
 
     with st.expander("Show as table (reference)", expanded=False):
         show = sub[["name", "role", "bio"]].rename(
-            columns={"name": "Name", "role": "Role", "bio": "Focus / notes"}
+            columns={"name": "Name", "role": "Role", "bio": "Bio"}
         )
         st.dataframe(show, use_container_width=True, hide_index=True)
 
 
 with tabs[0]:
-    section_title("Speakers – first announcements")
     speakers = df[df["type"] == "Speaker"].copy()
     speakers = speakers[speakers.apply(matches, axis=1)]
-    render_cards(speakers, "No speakers match your search. If the list is empty, update data/speakers.json.")
-    st.link_button("View speaker list (official EAC site)", links["speakers_page"])
+    render_cards(speakers, "Speaker profiles will appear here as confirmations are published.")
+    st.link_button("Official speaker page", links["speakers_page"])
 
 with tabs[1]:
-    section_title("EAC Board")
     board = df[df["type"] == "Board"].copy()
     if q.strip():
         board = board[board.apply(matches, axis=1)]
     render_cards(board, "No board members match your search.")
-
-st.caption("To update speakers or board members without changing code: edit data/speakers.json.")
+    st.link_button(
+        "Official EAC Board page",
+        links.get("boardmembers_page", "https://www.europeanairshow.org/boardmembers"),
+    )

@@ -33,5 +33,9 @@
     "Power: Type C/F plugs, 230V/50Hz.",
     "English is widely spoken in tourist areas and hotels.",
     "Airport–city travel: Metro Line 3, Express bus X95 (Syntagma), or taxi."
-  ]
+  ],
+  "venue_lat": 37.967805,
+  "venue_lon": 23.732317,
+  "venue_zoom": 19,
+  "venue_geo_uri": "geo:37.967805,23.732317?z=19"
 }

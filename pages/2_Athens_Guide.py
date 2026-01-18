@@ -69,5 +69,3 @@ with p2:
     card("Language", "English widely spoken in tourist areas and hotels", icon="🗣️")
     st.write("")
     card("Delegate tip", "Plan a short walk in Plaka after sessions—Athens works well as a compact city break.", icon="🗺️")
-
-st.caption("If you want, add curated restaurant/cafe recommendations and walking routes with map links.")

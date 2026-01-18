@@ -1,6 +1,11 @@
 import streamlit as st
 import pandas as pd
 
+st.set_page_config(
+    page_title="EAC Convention 2026",
+    page_icon="📅", # You can use an emoji or a URL to an image
+)
+
 from eac_utils import (
     load_json,
     inject_global_css,

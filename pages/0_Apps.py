@@ -17,12 +17,12 @@ c1, c2 = st.columns(2)
 with c1:
     st.markdown(
         "<div class='eac-card'>"
-        "<h3>🛡️ Airshow Safety App</h3>"
+        "<h3>🛡️ Airshow Safety & Excellence Dashboard</h3>"
         "<p>Safety indicators and reference views.</p>"
         "</div>",
         unsafe_allow_html=True,
     )
-    st.link_button("Open safety app", safety_url, use_container_width=True)
+    st.link_button("Open dashboard", safety_url, use_container_width=True)
 
 with c2:
     st.markdown(

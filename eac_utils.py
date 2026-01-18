@@ -75,6 +75,12 @@ def inject_global_css() -> None:
   /* Reduce visual noise */
   div[data-testid="stVerticalBlockBorderWrapper"] { border-radius: 18px; }
 
+  /* Hide Streamlit chrome for delegates */
+  #MainMenu { visibility: hidden; }
+  header { visibility: hidden; }
+  div[data-testid="stToolbar"] { visibility: hidden; }
+  div[data-testid="stStatusWidget"] { visibility: hidden; }
+
   /* Hide Streamlit footer */
   footer { visibility: hidden; }
 </style>
@@ -93,25 +99,22 @@ def pill(text: str) -> str:
 
 
 def brand_bar() -> None:
-    """Small brand header for all pages (EAC logo + app mark)."""
+    """Brand header for all pages (EAC logo + clear app title)."""
     left, right = st.columns([1.15, 1])
     eac_logo = ASSETS_DIR / "eac_logo.png"
-    app_logo = ASSETS_DIR / "app_logo.svg"
 
     with left:
         if eac_logo.exists():
-            st.image(str(eac_logo), width=220)
+            st.image(str(eac_logo), width=230)
         else:
             st.markdown("**European Airshow Council**")
 
     with right:
-        if app_logo.exists():
-            st.image(str(app_logo), width=250)
-        else:
-            st.markdown(
-                "<div style='text-align:right;font-weight:700;font-size:1.05rem'>EAC26 Delegate Hub</div>",
-                unsafe_allow_html=True,
-            )
+        st.markdown(
+            "<div style='text-align:right;font-weight:800;font-size:1.05rem'>EAC26 Delegate Hub</div>"
+            "<div style='text-align:right;opacity:0.72'>Athens, Greece</div>",
+            unsafe_allow_html=True,
+        )
 
 
 def page_header(title: str, subtitle: Optional[str] = None) -> None:
@@ -158,6 +161,13 @@ def top_nav(links: Dict[str, str]) -> None:
 
     Designed to work with client.showSidebarNavigation=false.
     """
+    # Delegate mode: minimise Streamlit chrome
+    try:
+        st.set_option("client.showSidebarNavigation", False)
+        st.set_option("client.toolbarMode", "minimal")
+    except Exception:
+        pass
+
     brand_bar()
     st.write("")
 
@@ -174,7 +184,7 @@ def top_nav(links: Dict[str, str]) -> None:
     with c5:
         st.page_link("pages/2_Athens_Guide.py", label="🏛 Athens")
     with c6:
-        st.page_link("pages/5_Sponsors.py", label="🤝 Partners")
+        st.page_link("pages/5_Partners.py", label="🤝 Partners")
     with c7:
         st.page_link("pages/7_Contacts.py", label="☎️ Contacts")
     with c8:

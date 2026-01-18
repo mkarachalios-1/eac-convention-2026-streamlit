@@ -94,12 +94,12 @@ section_title("Tools")
 t1, t2 = st.columns(2)
 with t1:
     st.markdown(
-        "<div class='eac-card'><h3>🛡️ Airshow Safety App</h3>"
+        "<div class='eac-card'><h3>🛡️ Airshow Safety & Excellence Dashboard</h3>"
         "<p>Safety indicators and reference views.</p></div>",
         unsafe_allow_html=True,
     )
     st.link_button(
-        "Open safety app",
+        "Open dashboard",
         links.get("external_safety_app", "https://airshow-safety-app-test.streamlit.app/"),
         use_container_width=True,
     )
